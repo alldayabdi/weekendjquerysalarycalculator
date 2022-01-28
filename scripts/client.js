@@ -40,6 +40,14 @@ function collectInfo(){
 }
 
 function displayEmployeeInfo(){
-
+    console.log('In displayEmployeeInfo');
+    // target output by ID
+    let  el = $('#infoRow')
+    el.empty();
+    for (employee of employees) {
+        el.append( '<td id = firstNameData </td>' + employee.firstName )
+        
+    }
     
+
 }
