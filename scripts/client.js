@@ -41,6 +41,8 @@ function createEmployeeInfo() {
     $("table tbody").append(tr1);
     console.log(tr1);
 
+   
+
 } //end createEmployeeInfo
 
 function deleteEmployee() {
@@ -49,5 +51,12 @@ function deleteEmployee() {
     $(this).closest('.trDynamic').remove();
     
 }
+function returnDollarSign(){
+    formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      
 
-console.log('It is working');
+      });
+}
+
