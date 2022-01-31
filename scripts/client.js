@@ -32,8 +32,9 @@ function createEmployeeInfo() {
     $('#monthlyNumber').text(totalMonthlySalary);
     console.log('total monthly salary:', totalMonthlySalary);
     //change background color to red if total monthly salary is greater than 20,000
-    if (totalMonthlySalary > 20000) {
-        $('#totalMonthlySalary').css("background-color", "red");
+    if (totalMonthlySalary >= 20000) {
+        $('#monthlyNumber').css("color", "red");
+        
     }
     //add employee info to DOM
     let buttonDelete = ('<button class="deleteButton">Delete</button>');
