@@ -26,7 +26,7 @@ function createEmployeeInfo() {
     console.log('employee list:', employeeList);
     $('.employeeInput').val('');
     //compute monthly salary and add to total monthly salary
-    let monthlySalaryEmployee = Math.round(employeeToAdd.salary);
+    let monthlySalaryEmployee = Math.round(employeeToAdd.salary/12);
     console.log('monthly salary:', monthlySalaryEmployee);
     totalMonthlySalary += monthlySalaryEmployee;
     $('#monthlyNumber').text(totalMonthlySalary);
@@ -47,7 +47,7 @@ function deleteEmployee() {
     //delete employee info in DOM
     console.log('in deleteEmployee');
     $(this).closest('.trDynamic').remove();
-
+    
 }
 
 console.log('It is working');

@@ -1,3 +1,7 @@
+body {
+    background-color: #FAEBD7;
+}
+
 header {
     background-color: 	#505050
   }
@@ -18,8 +22,9 @@ header {
     font-size: 20px;
   }
 
-  table {
+  table,  td, th {
     border: 1px solid black;
-    width: 50%;
+    width: 30%;
   }
+  
   
