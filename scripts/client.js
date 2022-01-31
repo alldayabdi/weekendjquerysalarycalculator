@@ -1,53 +1,53 @@
 $(document).ready(readyNow);
-let employees =[];
 
-function newEmployee(employeeFirstName, employeeLastName, employeeID, employeeTitle, employeeAnnualSalary){
-    const newEmployeeObj = {
-        firstName : employeeFirstName,
-        lastName: employeeLastName,
-        employeeID: employeeID,
-        title: employeeTitle,
-        annualSalary: employeeAnnualSalary
+let employeeList = [];
+let totalMonthlySalary = 0;
 
+function readyNow() {
+    // When the submit button is clicked, run this function
+    $('#submitButton').on('click', createEmployeeInfo);
+    //When something on the employee table is clicked, run this function 
+    $('#employeeTable').delegate('.deleteButton', 'click', deleteEmployee);
+}
+
+function createEmployeeInfo() {
+    console.log('in createEmployeeInfo');
+    //get employee info and place info into an object
+    let employeeToAdd = {
+        firstName: $('#firstNameInput').val(),
+        lastName: $('#lastNameInput').val(),
+        id: $('#idInput').val(),
+        title: $('#titleInput').val(),
+        salary: $('#salaryInput').val()
+    } //end employeeToAdd
+    //add employee to add to employeeList array
+    console.log('employee to add:', employeeToAdd);
+    employeeList.push(employeeToAdd);
+    console.log('employee list:', employeeList);
+    $('.employeeInput').val('');
+    //compute monthly salary and add to total monthly salary
+    let monthlySalaryEmployee = Math.round(employeeToAdd.salary);
+    console.log('monthly salary:', monthlySalaryEmployee);
+    totalMonthlySalary += monthlySalaryEmployee;
+    $('#monthlyNumber').text(totalMonthlySalary);
+    console.log('total monthly salary:', totalMonthlySalary);
+    //change background color to red if total monthly salary is greater than 20,000
+    if (totalMonthlySalary > 20000) {
+        $('#totalMonthlySalary').css("background-color", "red");
     }
-    employees.push(newEmployeeObj);
-    return true;
+    //add employee info to DOM
+    let buttonDelete = ('<button class="deleteButton">Delete</button>');
+    let tr1 = $(` <tr class="trDynamic"> <td> ${employeeToAdd.firstName}</td> <td>${employeeToAdd.lastName} </td> <td> <div class="idNumbers"> ${employeeToAdd.id} </div> </td> <td> ${employeeToAdd.title} </td> <td> ${employeeToAdd.salary} </td>  <td> ${buttonDelete} </td> </tr>`);
+    $("table tbody").append(tr1);
+    console.log(tr1);
 
-} // end newEmployee
+} //end createEmployeeInfo
 
-function readyNow(){
-    console.log('Js is working!');
-   $('#submitButton').on('click', collectInfo);
-}
-function collectInfo(){
-    //collect input values
-    let firstName = $('#firstName').val();
-    let lastName = $('#lastName').val();
-    let employeeID = $('#iD').val();
-    let title = $('#title').val();
-    let annualSalary = $('#annualSalary').val();
-    // call function passing input values through parameters
-    newEmployee(firstName, lastName, employeeID, title, annualSalary);
-    //empty inputs
-    $('#firstName').val('');
-    $('#lastName').val('');
-    $('#iD').val('');
-    $('#title').val('');
-    $('#annualSalary').val('');
-
-    displayEmployeeInfo();
+function deleteEmployee() {
+    //delete employee info in DOM
+    console.log('in deleteEmployee');
+    $(this).closest('.trDynamic').remove();
 
 }
 
-function displayEmployeeInfo(){
-    console.log('In displayEmployeeInfo');
-    // target output by ID
-    let  el = $('#infoRow')
-    el.empty();
-    for (employee of employees) {
-        el.append( '<td id = firstNameData </td>' + employee.firstName )
-        
-    }
-    
-
-}
+console.log('It is working');

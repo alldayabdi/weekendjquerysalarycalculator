@@ -1,53 +1,63 @@
+  
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salary Calculator</title>
     <link rel="stylesheet" href="style.css">
     <script src="scripts/jquery-3.6.0.min.js"></script>
     <script src="scripts/client.js"></script>
+    <title>Jquery Salary Calculator</title>
 </head>
+
+
 <body>
-    <h2>Add Employee</h2>
-    <div id="addEmployee">
-        <input type="text" placeholder="First Name" id ='firstName'> </input>
-        <input type="text" placeholder="Last Name" id = 'lastName'> </input>
-        <input type="text" placeholder="ID" id = 'iD'> </input>
-        <input type="text" placeholder="Title" id= 'title'> </input>
-        <input type="text" placeholder="Annual Salary" id= 'annualSalary'> </input>
-        <!-- <div submitDiv></div> -->
-        <button id="submitButton">Submit</button>
+    <header>
+        <h1 class="mb-4"> Salary Calculator</h1>
+    </header>
+    <br>
+
+    <div id="addEmployee" class="mb-4">
+        <h3>Add Employee</h3>
+        <br>
+        <input type="text" id="firstNameInput" class="employeeInput" placeholder="First Name">
+        <input type="text" id="lastNameInput" class="employeeInput" placeholder="Last Name">
+        <input type="number" id="idInput" class="employeeInput" placeholder="ID Number">
+        <input type="text" id="titleInput" class="employeeInput" placeholder="Title">
+        <input type="number" id="salaryInput" class="employeeInput" placeholder="Annual Salary">
+        <button type="submit" id="submitButton"> Submit </button>
 
     </div>
     <br>
-    <div id="employeeBox">
-        <table id = 'employeeTable'>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Annual Salary</th>
-          </tr>
-          <tr id="infoRow">
-            <td id="firstNameData"></td> 
-            <td id="lastNameData"></td>
-            <td id="idData"></td>
-            <td id="titleData"></td>
-            <td id="annualSalary"></td>
 
+    <div id="employeeTable" class="mb-5">
+        <caption>
+            <h3>List of Employees </h3>
+            <br>
+        </caption>
+        <table class="table table-bordered" id="deleteRow">
 
-          </tr>
-
-
-
-
-
+            <tbody>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Annual Salary</th>
+                    <th> </th>
+                </tr>
+            </tbody>
 
         </table>
+
     </div>
-    
+
+    <div id="totalMonthlySalary">
+        <p> Total Monthly: <span id="monthlyNumber"> </span> </p>
+
+    </div>
 </body>
+
 </html>
